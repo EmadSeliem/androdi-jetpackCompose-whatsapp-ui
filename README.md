@@ -5,11 +5,12 @@ Jetpack Compose is Android’s modern toolkit for building native UI. It simplif
 # Whats app UI
 
 Uing Jetpack compose I built whats app UI ,on this app you can learn how to use 
-1-TopAppBr(Adding text , iocns and menu actions).
-2-Layouts (Row,Column, Box).
-3Lazy Column.
-4-Float Button.
-5-TabLayout.
+
+ *TopAppBr(Adding text , iocns and menu actions).
+ *Layouts (Row,Column, Box).
+ *Lazy Column.
+ *Float Button.
+ *TabLayout. 
         
 ==============================================
  ### Screenshots
