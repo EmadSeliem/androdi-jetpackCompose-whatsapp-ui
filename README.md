@@ -13,5 +13,5 @@ Uing Jetpack compose I built whats app UI ,on this app you can learn how to use
         
 ==============================================
  ### Screenshots
-<img src="screenshot_1.png" height="400" alt="Screenshot"/>    <img src="Screenshot_12.png" height="400" alt="Screenshot"/>
+<img src="screenshot_1.png" height="400" alt="Screenshot"/> 
 
