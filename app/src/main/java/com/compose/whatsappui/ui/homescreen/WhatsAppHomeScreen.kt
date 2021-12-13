@@ -3,24 +3,20 @@ package com.compose.whatsappui.ui.homescreen
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Call
-import androidx.compose.material.icons.filled.Favorite
+
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.BottomEnd
 import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.compose.whatsappui.R
 import com.compose.whatsappui.ui.components.AppToolBar
-import com.compose.whatsappui.ui.components.ContactItem
+import com.compose.whatsappui.ui.components.CallsItem
 import com.compose.whatsappui.ui.components.TextWithRoundBorder
 import com.google.accompanist.pager.*
 import kotlinx.coroutines.launch
@@ -32,7 +28,7 @@ import kotlinx.coroutines.launch
 fun ContactsHomeScreen() {
     Box(modifier = Modifier.fillMaxSize()) {
         Column(modifier = Modifier.fillMaxSize()) {
-            AppToolBar("WhatsApp")
+            AppToolBar(stringResource(id = R.string.app_title))
             Spacer(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -95,12 +91,12 @@ fun TabScreen() {
 @ExperimentalPagerApi
 @Composable
 fun Tabs(pagerState: PagerState) {
-    val tabData = listOf("CHATS", "STATUS", "CALLS")
+    val tabData = listOf(
+        stringResource(id = R.string.chats),
+        stringResource(id = R.string.status),
+        stringResource(id = R.string.calls)
+    )
     val scope = rememberCoroutineScope()
-    var tabIndex by remember {
-        mutableStateOf(0)
-    }
-
     TabRow(
         backgroundColor = Color(0xFF008065),
         modifier = Modifier
@@ -123,7 +119,7 @@ fun Tabs(pagerState: PagerState) {
                 selectedContentColor = Color(0xFFCED6D4),
                 unselectedContentColor = Color(0xFF007F6F),
                 onClick = {
-                    tabIndex = index
+
                     scope.launch { pagerState.animateScrollToPage(index) }
                 },
                 text = {
@@ -155,8 +151,8 @@ fun TabsContent(pagerState: PagerState) {
     HorizontalPager(state = pagerState) { page ->
         when (page) {
             0 -> ChatTabContent()
-            1 -> ChatTabContent()
-            2 -> ChatTabContent()
+            1 -> StatusTabContent()
+            2 -> CallTabContent()
         }
 
     }

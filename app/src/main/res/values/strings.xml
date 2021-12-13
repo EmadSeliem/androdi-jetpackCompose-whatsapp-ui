@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">WhatsApp UI</string>
+    <string name="app_title">WhatsApp</string>
+    <string name="new_group">New group</string>
+    <string name="new_broadcast">New broadcast</string>
+    <string name="linked_devices">Linked devices</string>
+    <string name="shared_messages">Shared messages</string>
+    <string name="settings">Settings</string>
+    <string name="recent_updates">Recent updates</string>
+    <string name="chats">CHATS</string>
+    <string name="status">STATUS</string>
+    <string name="calls">CALLS</string>
+
 </resources>
