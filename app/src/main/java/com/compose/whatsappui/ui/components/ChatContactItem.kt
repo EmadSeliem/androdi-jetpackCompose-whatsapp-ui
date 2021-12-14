@@ -2,6 +2,7 @@ package com.compose.whatsappui.ui.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Text
@@ -29,6 +30,8 @@ fun ContactItem(contact: Contact) {
             .fillMaxWidth()
             .wrapContentHeight()
             .padding(10.dp)
+            .clickable {
+            }
 
     ) {
         Image(
@@ -75,7 +78,7 @@ fun ContactItem(contact: Contact) {
         Column(
             modifier = Modifier
                 .wrapContentWidth()
-                .align(CenterVertically), horizontalAlignment = Alignment.End
+                .align(CenterVertically), horizontalAlignment = End
         ) {
             Text(
                 color = Color(0xFF46CB90),

@@ -1,12 +1,15 @@
 package com.compose.whatsappui.ui.homescreen
 
+import android.util.Log
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment.Companion.BottomEnd
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -16,16 +19,19 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.compose.whatsappui.R
 import com.compose.whatsappui.ui.components.AppToolBar
-import com.compose.whatsappui.ui.components.CallsItem
 import com.compose.whatsappui.ui.components.TextWithRoundBorder
 import com.google.accompanist.pager.*
 import kotlinx.coroutines.launch
 
 
+@ExperimentalAnimationApi
 @ExperimentalPagerApi
 @Composable
 @Preview(showBackground = true)
 fun ContactsHomeScreen() {
+    val pagerState = rememberPagerState(pageCount = 3)
+    var visible by remember { mutableStateOf(false) }
+
     Box(modifier = Modifier.fillMaxSize()) {
         Column(modifier = Modifier.fillMaxSize()) {
             AppToolBar(stringResource(id = R.string.app_title))
@@ -35,29 +41,77 @@ fun ContactsHomeScreen() {
                     .height(10.dp)
                     .background(color = Color(0xFF008065))
             )
-            TabScreen()
+            TabScreen(pagerState = pagerState)
         }
-        FloatingActionButton(
+        Column(
             modifier = Modifier
-                .wrapContentHeight()
-                .wrapContentWidth()
-                .padding(16.dp)
-                .align(BottomEnd), backgroundColor = Color(0xFF00AB88),
-            onClick = { /*do something*/ }) {
-            Icon(
-                painter = painterResource(id = R.drawable.ic_baseline_message_24),
-                tint = Color.White,
-                contentDescription = "Localized description"
-            )
+                .fillMaxWidth()
+                .fillMaxHeight()
+                .padding(horizontal = 16.dp),
+            horizontalAlignment = Alignment.End,
+            verticalArrangement = Arrangement.Bottom
+        ) {
+
+            AnimatedVisibility(visible = visible) {
+                FloatingActionButton(
+                    modifier = Modifier
+                        .size(50.dp), backgroundColor = Color(0xFFADAFAF),
+                    onClick = { /*do something*/
+                    }) {
+                    FloatingIcon(drawerId = R.drawable.ic_baseline_edit_24)
+                }
+            }
+
+            FloatingActionButton(
+                modifier = Modifier
+                    .wrapContentHeight()
+                    .wrapContentWidth()
+                    .padding(vertical = 10.dp), backgroundColor = Color(0xFF00AB88),
+                onClick = { /*do something*/
+
+                }) {
+
+                when (pagerState.currentPage) {
+                    0 -> {
+                        visible = false
+                        FloatingIcon(drawerId = R.drawable.ic_baseline_message_24)
+                    }
+                    1 -> {
+                        visible = true
+                        FloatingIcon(drawerId = R.drawable.ic_baseline_photo_camera_24)
+
+                    }
+                    2 -> {
+                        visible = false
+                        FloatingIcon(drawerId = R.drawable.ic_baseline_add_ic_call_24)
+
+                    }
+                    else -> {
+                        visible = false
+                        FloatingIcon(drawerId = R.drawable.ic_baseline_add_ic_call_24)
+                    }
+                }
+            }
+
+
         }
     }
+}
 
+@Composable
+fun FloatingIcon(drawerId: Int) {
+    Icon(
+        painter = painterResource(
+            id = drawerId
+        ),
+        tint = Color.White,
+        contentDescription = "Localized description"
+    )
 }
 
 @ExperimentalPagerApi
 @Composable
-fun TabScreen() {
-    val pagerState = rememberPagerState(pageCount = 3)
+fun TabScreen(pagerState: PagerState) {
     Column(
         modifier = Modifier
             .wrapContentHeight()

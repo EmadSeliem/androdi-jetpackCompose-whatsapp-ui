@@ -47,7 +47,7 @@ fun AppToolBar(title: String) {
             imageVector = Icons.Default.Search,
             contentDescription = ""
         )
-        Box(modifier = Modifier.wrapContentSize(Alignment.TopEnd)) {
+        Box(contentAlignment = Alignment.TopEnd,modifier = Modifier.wrapContentSize(Alignment.TopEnd)) {
             IconButton(onClick = { expanded = true }) {
                 Icon(Icons.Default.MoreVert, contentDescription = "Localized description")
             }

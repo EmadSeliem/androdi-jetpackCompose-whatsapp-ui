@@ -7,7 +7,7 @@ object ContactList {
     var contactsList = listOf(
         Contact(
             "Emad Abdelmonem",
-            R.drawable.photo,
+            R.drawable.images_6,
             "Hi Emad, How are you ?",
             "Today", 24
         ),
@@ -25,7 +25,7 @@ object ContactList {
         ),
         Contact(
             "Karma Seliem",
-            R.drawable.image_3,
+            R.drawable.image_2,
             "Typing....",
             "11/12/21", 70
         ),
@@ -49,13 +49,13 @@ object ContactList {
         ),
         Contact(
             "Furqan Taher",
-            R.drawable.photo,
+            R.drawable.images_8,
             "typing...",
             "11/12/21", 1
         ),
         Contact(
             "Salma ",
-            R.drawable.image_9,
+            R.drawable.image_7,
             "typing....",
             "11/12/21", 24
         ),
