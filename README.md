@@ -11,8 +11,9 @@ Using Jetpack compose I built whats app UI ,on this app you can learn how to use
  *Lazy Column. <br />
  *Float Button. <br />
  *TabLayout.  <br />
+ *Jetpack Animation(AnimatedVisibility).  <br />
         
 ==============================================
  ### Screenshots
-<img src="screenshot_1.png" height="400" alt="Screenshot"/> 
+<img src="screenshot_1.png" height="400" alt="Screenshot"/> <img src="calls.png" height="400" alt="Screenshot"/> <img src="status.png" height="400" alt="Screenshot"/> 
 
