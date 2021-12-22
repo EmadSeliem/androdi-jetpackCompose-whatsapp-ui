@@ -1,5 +1,6 @@
 package com.compose.whatsappui.ui.components
 
+import android.content.Intent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -14,23 +15,33 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.content.ContextCompat.startActivity
+import androidx.navigation.NavController
+import com.compose.Screen
+import com.compose.whatsappui.MainActivity
+import com.compose.whatsappui.ui.chat.ChatActivity
 import com.compose.whatsappui.ui.data.Contact
+import com.compose.whatsappui.ui.homescreen.ContactsHomeScreen
 
 /*
 -Creating Item list for contacts.
  */
 @Composable
 fun ContactItem(contact: Contact) {
+    val context = LocalContext.current
+
     Row(
         modifier = Modifier
             .fillMaxWidth()
             .wrapContentHeight()
             .padding(10.dp)
             .clickable {
+                context.startActivity(Intent(context, ChatActivity::class.java))
             }
 
     ) {

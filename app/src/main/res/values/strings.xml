@@ -10,5 +10,12 @@
     <string name="chats">CHATS</string>
     <string name="status">STATUS</string>
     <string name="calls">CALLS</string>
+    <string name="view_contact">View contact</string>
+    <string name="media_links_docs">Media,links and docs</string>
+    <string name="search">Search</string>
+    <string name="mute_notifications">Mute notifications</string>
+    <string name="wallpaper">Wallpaper</string>
+    <string name="more">More</string>
+
 
 </resources>

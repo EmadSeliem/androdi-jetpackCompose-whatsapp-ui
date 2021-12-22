@@ -17,6 +17,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.compose.whatsappui.R
 import com.compose.whatsappui.ui.components.AppToolBar
 import com.compose.whatsappui.ui.components.TextWithRoundBorder
@@ -27,7 +28,6 @@ import kotlinx.coroutines.launch
 @ExperimentalAnimationApi
 @ExperimentalPagerApi
 @Composable
-@Preview(showBackground = true)
 fun ContactsHomeScreen() {
     val pagerState = rememberPagerState(pageCount = 3)
     var visible by remember { mutableStateOf(false) }
@@ -41,7 +41,7 @@ fun ContactsHomeScreen() {
                     .height(10.dp)
                     .background(color = Color(0xFF008065))
             )
-            TabScreen(pagerState = pagerState)
+            TabScreen(pagerState)
         }
         Column(
             modifier = Modifier

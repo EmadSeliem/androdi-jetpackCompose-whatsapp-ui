@@ -61,7 +61,6 @@ fun AppToolBar(title: String) {
                 DropdownMenuItem(onClick = { /* Handle new broadcast! */ }) {
                     Text(stringResource(id = R.string.new_broadcast))
                 }
-                Divider()
                 DropdownMenuItem(onClick = { /* Handle linked devices! */ }) {
                     Text(stringResource(id = R.string.linked_devices))
                 }
